@@ -1,0 +1,36 @@
+﻿@model IEnumerable<deadline.Models.Contas>
+@{
+    ViewBag.Title = "Adicionar conta";
+}
+
+<h2>Adicionar conta</h2>
+<form method="post" action="Create">
+    <div class="form-group">
+        <label for="data_leitura">Data de leitura</label>
+        <input type="date" name="data_leitura" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label for="n_leitura">Número de leitura</label>
+        <input type="number" name="n_leitura" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="kw_gastp">Kw gasto</label>
+        <input type="number" name="kw_gasto" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="valor_pagar">Valor a pagar</label>
+        <input type="number" name="valor_pagar" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="data_pagamento">Data de Pagamento</label>
+        <input type="date" name="data_pagamento" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="media_consumo">Média consumo</label>
+        <input type="number" name="media_consumo" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+

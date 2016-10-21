@@ -1,0 +1,37 @@
+﻿@model deadline.Models.Contas
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar conta</h2>
+<form method="post" action="Edit">
+    <input type="hidden" name="id_conta" value="@Model.id_conta"/>
+    <div class="form-group">
+        <label for="data_leitura">Data de leitura</label>
+        <input type="date" value="@string.Format("{0:yyyy-MM-dd}", Model.data_leitura)" name="data_leitura" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="n_leitura">Número de leitura</label>
+        <input type="number" value="@Model.n_leitura" name="n_leitura" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="kw_gastp">Kw gasto</label>
+        <input type="number" value="@Model.kw_gasto" name="kw_gasto" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="valor_pagar">Valor a pagar</label>
+        <input type="number" value="@Model.valor_pagar" name="valor_pagar" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="data_pagamento">Data de Pagamento</label>
+        <input type="date" value="@string.Format("{0:yyyy-MM-dd}", Model.data_pagamento)" name="data_pagamento" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="media_consumo">Média consumo</label>
+        <input type="number" value="@Model.media_consumo" name="media_consumo" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+</form>
+

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<deadline.Models.Contas>
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<style type="text/css">
+    #content div{
+        margin-bottom: 15px;
+    }
+</style>
+<h2>Contas</h2>
+<div class="col-sm-12">
+    <a class="btn btn-primary" href="Create">Adicionar uma nova Conta</a>
+</div>
+<div id="content" class="container">
+    <div class="col-sm-12">
+        <form action="Date" method="post" class="form form-inline">
+            <div class="form-group">
+                <label for="data_inicio">Data Inicio</label>
+                <input type="date" name="data_inicio" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label for="data_final">Data Final</label>
+                <input type="date" name="data_final" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+        </form>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Data Leitura</th>
+                <th>Num. Leitura</th>
+                <th>Kw gasto</th>
+                <th>Valor a pagar</th>
+                <th>Data pagamento</th>
+                <th>Média consumo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.data_leitura.ToShortDateString()</td>
+                    <td>@c.n_leitura</td>
+                    <td>@c.kw_gasto</td>
+                    <td>@c.valor_pagar</td>
+                    <td>@c.data_pagamento.ToShortDateString()</td>
+                    <td>@c.media_consumo</td>
+                    <td>
+                        <a class="btn btn-primary" href="Edit/@c.id_conta">Alterar</a> | 
+                        <a class="btn btn-danger" href="Delete/@c.id_conta">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <span>Total valor médio</span>
+            @ViewBag.totalMedia
+        </li>
+        <li class="list-group-item">
+            <span>Total valor pago</span>
+            @ViewBag.totalPagar
+        </li>
+    </ul>
+    <div>
+        <h3>Menor Consumo</h3>
+        <p>@ViewBag.menor</p>
+    </div>
+    <div>
+        <h3>Maior Consumo</h3>
+        <p>@ViewBag.maior</p>
+    </div>
+</div>

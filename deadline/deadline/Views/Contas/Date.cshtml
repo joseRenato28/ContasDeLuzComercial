@@ -1,0 +1,38 @@
+﻿@model IEnumerable<deadline.Models.Contas>
+@{
+    ViewBag.Title = "Date";
+}
+
+<h2>Busca por datas</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Data Leitura</th>
+                <th>Num. Leitura</th>
+                <th>Kw gasto</th>
+                <th>Valor a pagar</th>
+                <th>Data pagamento</th>
+                <th>Média consumo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.data_leitura.ToShortDateString()</td>
+                    <td>@c.n_leitura</td>
+                    <td>@c.kw_gasto</td>
+                    <td>@c.valor_pagar</td>
+                    <td>@c.data_pagamento.ToShortDateString()</td>
+                    <td>@c.media_consumo</td>
+                    <td>
+                        <a class="btn btn-primary" href="Edit/@c.id_conta">Alterar</a> |
+                        <a class="btn btn-danger" href="Delete/@c.id_conta">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
